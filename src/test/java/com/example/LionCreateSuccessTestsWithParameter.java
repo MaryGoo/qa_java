@@ -7,7 +7,7 @@ import org.junit.runners.Parameterized;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class LionCreateSuccessfulTests {
+public class LionCreateSuccessTestsWithParameter {
 
     String sex;
     boolean expected;
@@ -20,7 +20,7 @@ public class LionCreateSuccessfulTests {
         };
     }
 
-    public LionCreateSuccessfulTests(String sex, Boolean expected){
+    public LionCreateSuccessTestsWithParameter(String sex, Boolean expected){
         this.expected = expected;
         this.sex = sex;
     }
