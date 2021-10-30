@@ -11,6 +11,7 @@ public class LionCreateSuccessTestsWithParameter {
 
     String sex;
     boolean expected;
+    Feline feline;
 
     @Parameterized.Parameters
     public static Object[][] getSexData() {
@@ -20,17 +21,14 @@ public class LionCreateSuccessTestsWithParameter {
         };
     }
 
-    public LionCreateSuccessTestsWithParameter(String sex, Boolean expected){
+    public LionCreateSuccessTestsWithParameter(String sex, boolean expected){
         this.expected = expected;
         this.sex = sex;
     }
 
     @Test
     public void createLionManTest() throws Exception {
-        Lion lion = new Lion (sex);
+        Lion lion = new Lion (sex,feline);
         assertEquals(expected, lion.doesHaveMane());
     }
-
-
-
 }

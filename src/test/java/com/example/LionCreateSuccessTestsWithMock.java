@@ -18,10 +18,7 @@ public class LionCreateSuccessTestsWithMock {
 
     @Test(expected = Exception.class)
     public void returnKittensLion() throws Exception {
-        //этот тест нужно разделить на два отдельных, нужно либо исключение проверять
-        //либо моки
-        //вместе не нужно
-        Lion lion = new Lion("Самец");
+        Lion lion = new Lion("Самец",feline);
         when(feline.getKittens()).thenReturn(1);
         int expected =1;
         assertEquals(expected,lion.getKittens());

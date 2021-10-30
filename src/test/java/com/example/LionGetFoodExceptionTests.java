@@ -13,7 +13,7 @@ public class LionGetFoodExceptionTests {
 
     @Test(expected = Exception.class)
     public void eatMeatEmptyTest() throws Exception{
-        new Lion (feline);
+        new Lion ("Самка", feline);
         Mockito.when(feline.getFood("Хищник")).thenReturn(Collections.singletonList(""));
     }
 }
