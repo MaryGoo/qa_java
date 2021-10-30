@@ -30,4 +30,7 @@ public class LionCreateSuccessfulTests {
         Lion lion = new Lion (sex);
         assertEquals(expected, lion.doesHaveMane());
     }
+
+
+
 }
