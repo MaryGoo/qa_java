@@ -2,7 +2,7 @@ package com.example;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
@@ -12,19 +12,16 @@ import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CatGetFoodListTests {
-    private Feline feline = new Feline();
 
-    List <String> foods = List.of("Сухой корм", "Птицы", "Рыба");
-
-    @Mock
-    private Predator predator;
+    @Spy
+    Feline feline;
 
     @Test
-    public void getFoodListTwoValuesSuccess() throws Exception{
-        when(predator.eatMeat()).thenReturn(foods);
-        Cat cat = new Cat (feline);
-        cat.getFood();
-       // assertEquals(foods, cat.getFood());
-        verify(predator).eatMeat();
+    public void getFoodListTwoValuesSuccess() throws Exception {
+        List expectedList = List.of("Птицы", "Рыба");
+        when(feline.eatMeat()).thenReturn(expectedList);
+        Cat cat = new Cat(feline);
+        assertEquals(expectedList.size(), cat.getFood().size()); //если размер списков разный, сраынивать их значения не надо
+        assertEquals(expectedList, cat.getFood());
     }
 }

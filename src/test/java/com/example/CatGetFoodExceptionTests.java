@@ -1,21 +1,25 @@
 package com.example;
 
 import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
+import org.junit.runner.RunWith;
+import org.mockito.Spy;
+import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.Collections;
+import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
+
+@RunWith(MockitoJUnitRunner.class)
 public class CatGetFoodExceptionTests {
-
+    @Spy
     Feline feline;
 
-   @Mock
-   Predator predator;
-
     @Test(expected = Exception.class)
-    public void eatMeatEmptyTest() throws Exception{
-        new Cat (feline);
-        Mockito.when(predator.eatMeat()).thenReturn(Collections.singletonList(""));
+    public void CatGetFoodExceptionTests() throws Exception {
+        List expectedList = List.of(null);
+        when(feline.eatMeat()).thenReturn(expectedList);
+        Cat cat = new Cat(feline);
+        assertEquals(expectedList, cat.getFood());
     }
 }
