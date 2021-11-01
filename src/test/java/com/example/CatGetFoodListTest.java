@@ -8,18 +8,20 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CatGetFoodExceptionTests {
+public class CatGetFoodListTest {
+
     @Spy
     Feline feline;
 
-    @Test(expected = Exception.class)
-    public void CatGetFoodExceptionTests() throws Exception {
-        List expectedList = List.of(null);
+    @Test
+    public void getFoodListTwoValuesSuccess() throws Exception {
+        List expectedList = List.of("Птицы", "Рыба");
         when(feline.eatMeat()).thenReturn(expectedList);
         Cat cat = new Cat(feline);
+        assertEquals(expectedList.size(), cat.getFood().size()); //если размер списков разный, сраынивать их значения не надо
         assertEquals(expectedList, cat.getFood());
     }
 }

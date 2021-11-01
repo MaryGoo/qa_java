@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class CatCreateAndGetSoundTests {
+public class CatCreateAndGetSoundTest {
 
     Feline feline;
 

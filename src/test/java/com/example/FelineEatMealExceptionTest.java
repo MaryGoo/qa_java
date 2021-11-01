@@ -8,7 +8,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
-public class FelineEatMealExceptionTests {
+public class FelineEatMealExceptionTest {
 
     @Spy
     private Feline feline ;

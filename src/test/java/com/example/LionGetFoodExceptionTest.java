@@ -6,7 +6,7 @@ import org.mockito.Mockito;
 
 import java.util.Collections;
 
-public class LionGetFoodExceptionTests {
+public class LionGetFoodExceptionTest {
 
     @Mock
     Feline feline;
